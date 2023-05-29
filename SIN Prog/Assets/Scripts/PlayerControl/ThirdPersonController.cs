@@ -76,7 +76,9 @@ public class ThirdPersonController : MonoBehaviour
             //walking Animation
             //control rotation
             animator.SetBool("Walking", true);
-            this.rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
+            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+            float turnSpeed = 7f; //or whatever
+            this.rb.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
         }
         else
         {
