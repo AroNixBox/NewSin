@@ -17,6 +17,7 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField] private  ToolController toolController;
 
     public UnityEvent OnAxeHit;
+    private Animator animator;
 
     //UI + Colorchange for Interaction
     [SerializeField] private GameObject pickUPUI;
@@ -27,6 +28,7 @@ public class PlayerPickup : MonoBehaviour
         pickableObject = GetComponent<PickableObject>();
         actionMap = new ThirdPersonActionMap();
         pickUPUI.SetActive(false);
+        animator = GetComponent<Animator>();
     }
     private void OnEnable()
     {
@@ -68,7 +70,8 @@ public class PlayerPickup : MonoBehaviour
     }
     public IEnumerator AxeHit(ITreeDamageable treeDamageable)
     {
-        yield return new WaitForSeconds(.4f);
+        animator.SetTrigger("AxeHit");
+        yield return new WaitForSeconds(0.5f);
         int damageAmount = UnityEngine.Random.Range(10, 30);
         //Add DamagePopupUI here if wanted
         treeDamageable.Damage(damageAmount);
@@ -90,17 +93,20 @@ public class PlayerPickup : MonoBehaviour
             if (pickableObject == null && raycastHit.transform.TryGetComponent<PickableObject>(out pickableObject))
             {
                 //Pick it up
+                animator.SetTrigger("PickUp");
                 pickableObject.Grab(objectGrabPointTransform);
             }
             //If Ray hits Object with Script ItemObject...
             else if (raycastHit.transform.TryGetComponent<ItemObject>(out ItemObject item))
             {
+                animator.SetTrigger("PickUp");
                 item.OnHandlePickupItem();
                 //check if has ingredients after picked up item
                 eventChannel.RaiseEvent();
             }
             else if (raycastHit.transform.TryGetComponent<ItemRecipe>(out ItemRecipe itemRecipe))
             {
+                animator.SetTrigger("PickUp");
                 itemRecipe.OnHandlePickupRecipe();
                 //check if already has ingredients
                 //If have many Recipes and collected many objects before, Bug: Ui wouldnt disappear..

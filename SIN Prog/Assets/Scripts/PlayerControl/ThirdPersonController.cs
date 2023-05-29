@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,13 +20,13 @@ public class ThirdPersonController : MonoBehaviour
 
     [SerializeField]
     private Camera playerCamera;
-    //private Animator animator;
+    private Animator animator;
 
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
         actionMap = new ThirdPersonActionMap();
-        //animator = this.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -74,10 +75,12 @@ public class ThirdPersonController : MonoBehaviour
             //WE ARE MOVING
             //walking Animation
             //control rotation
+            animator.SetBool("Walking", true);
             this.rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
         }
         else
         {
+            animator.SetBool("Walking", false);
             //WE ARENT MOVING
             //Idle Animation
             //stop camrotation
@@ -104,6 +107,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (IsGrounded())
         {
+            animator.SetTrigger("Jump");
             forceDirection += Vector3.up * jumpForce;
         }
     }
