@@ -192,7 +192,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29548166}
-  m_LocalRotation: {x: -0.000000014901161, y: -0.00000004356622, z: 0.000000019838964, w: 1}
+  m_LocalRotation: {x: -0.000000014901161, y: 0.00000004262455, z: -0.00000001941015, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1825,7 +1825,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.21203552, y: -0.000000032125566, z: 0.00000000697025, w: 0.977262}
+  m_LocalRotation: {x: 0.21203552, y: 0.0000000321517, z: -0.000000006975921, w: 0.977262}
   m_LocalPosition: {x: 13.239999, y: 9, z: 229}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3159,7 +3159,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566071378}
-  m_LocalRotation: {x: 0.018165424, y: -0.00000003067969, z: 0.000000014649365, w: 0.9998351}
+  m_LocalRotation: {x: 0.018165424, y: 0.000000029688874, z: -0.0000000141762575, w: 0.9998351}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3560,7 +3560,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676777179}
-  m_LocalRotation: {x: -0.018165484, y: -0.000000043919513, z: 0.00000001904433, w: 0.999835}
+  m_LocalRotation: {x: -0.018165484, y: 0.000000044125038, z: -0.000000019133449, w: 0.999835}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4672,6 +4672,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 921695577, guid: 39842d4e0739a9f42aa6db1dcc5ea477, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 2046743762, guid: 39842d4e0739a9f42aa6db1dcc5ea477, type: 3}
       propertyPath: playerCamera
       value: 
