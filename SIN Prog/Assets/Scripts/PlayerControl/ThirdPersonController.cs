@@ -1,3 +1,4 @@
+using MoreMountains.Tools;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -68,17 +69,18 @@ public class ThirdPersonController : MonoBehaviour
     private void LookAt()
     {
         Vector3 direction = rb.velocity;
-        direction.y = 0f;
+        direction.y = 0;
 
         if (move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
         {
             //WE ARE MOVING
-            //walking Animation
-            //control rotation
             animator.SetBool("Walking", true);
             Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
             float turnSpeed = 7f; //or whatever
-            this.rb.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
+            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * turnSpeed);
+
+            //Added.normalized very late, maybe remove if it causes bugs
+            //Before was: rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
         }
         else
         {

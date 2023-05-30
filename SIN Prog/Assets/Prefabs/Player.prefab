@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 342305190}
   m_Layer: 0
-  m_Name: equippedToolPosition
+  m_Name: FloatingObjPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342305189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.441, y: 1.009, z: 0.525}
+  m_LocalPosition: {x: 0.441, y: 1.211, z: 0.615}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1238,11 +1238,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 3.5
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2046743762
 MonoBehaviour:
@@ -1257,8 +1257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementForce: 1
-  jumpForce: 5
-  maxSpeed: 2
+  jumpForce: 2
+  maxSpeed: 1.5
   playerCamera: {fileID: 0}
 --- !u!114 &2046743770
 MonoBehaviour:
@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <eventChannel>k__BackingField: {fileID: 11400000, guid: d30756385e4b2e24887ab7f8a70f3183, type: 2}
   interactRaycastAnker: {fileID: 921695577}
-  objectGrabPointTransform: {fileID: 370309650}
+  objectGrabPointTransform: {fileID: 342305190}
   interactionMask:
     serializedVersion: 2
     m_Bits: 8
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357c80ce5739f1748b423089591c900a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equippedToolPosition: {fileID: 342305190}
+  equippedToolPosition: {fileID: 370309650}
   equippedToolGO: {fileID: 0}
 --- !u!95 &2046743776
 Animator:
