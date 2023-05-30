@@ -14,7 +14,7 @@ public class PlayerPickup : MonoBehaviour
     [SerializeField] private Transform objectGrabPointTransform;
     private float interactionDistance = 2f;
     [SerializeField] LayerMask interactionMask;
-    [SerializeField] private  ToolController toolController;
+    [SerializeField] private ToolController toolController;
 
     public UnityEvent OnAxeHit;
     private Animator animator;
@@ -55,6 +55,7 @@ public class PlayerPickup : MonoBehaviour
         if (pickableObject != null)
         {
             pickableObject.Drop();
+            animator.SetBool("IsCarrying", false);
             pickableObject = null;
         }
         //Check for Equipped weapon is Axe, if yes, and Tree in Range, Hit tree once
@@ -84,6 +85,7 @@ public class PlayerPickup : MonoBehaviour
         if (pickableObject != null)
         {
             pickableObject.Drop();
+            animator.SetBool("IsCarrying", false);
             pickableObject = null;
         }
         //Nothing picked up, shoot Ray
@@ -93,6 +95,7 @@ public class PlayerPickup : MonoBehaviour
             if (pickableObject == null && raycastHit.transform.TryGetComponent<PickableObject>(out pickableObject))
             {
                 //Pick it up
+                animator.SetBool("IsCarrying", true);
                 animator.SetTrigger("PickUp");
                 pickableObject.Grab(objectGrabPointTransform);
             }

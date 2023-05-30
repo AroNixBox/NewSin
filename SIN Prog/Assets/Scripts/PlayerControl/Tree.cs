@@ -102,8 +102,4 @@ public class Tree : MonoBehaviour, ITreeDamageable
             }
         }
     }
-    private void OnCollisionStay(Collision collision)
-    {
-
-    }
 }
