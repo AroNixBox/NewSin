@@ -4,23 +4,35 @@ public class PickableObject : MonoBehaviour
 {
     private Rigidbody rb;
     private Transform objectGrabPointTransform;
-    private Collider thisCollider;
+    private BoxCollider boxCollider;
+    private CapsuleCollider capsuleCollider;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        thisCollider = rb.GetComponent<Collider>();
+        boxCollider = rb.GetComponent<BoxCollider>();
+        capsuleCollider = rb.GetComponent<CapsuleCollider>();
     }
     public void Grab(Transform objectGrabPointTransform)
     {
         this.objectGrabPointTransform = objectGrabPointTransform;
         rb.useGravity = false;
-        thisCollider.enabled = false;
+
+        if(boxCollider)
+            boxCollider.enabled = false;
+
+        if(capsuleCollider)
+            capsuleCollider.enabled = true;
     }
     public void Drop()
     {
         this.objectGrabPointTransform = null;
         rb.useGravity = true;
-        this.thisCollider.enabled = true;
+
+        if(boxCollider)
+            boxCollider.enabled = true;
+
+        if (capsuleCollider)
+            capsuleCollider.enabled = false;
     }
     private void FixedUpdate()
     {

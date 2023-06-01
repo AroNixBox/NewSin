@@ -25,7 +25,7 @@ public class Tree : MonoBehaviour, ITreeDamageable
         switch (treeType)
         {
             default:
-            case Type.Tree: healthAmount = 150; break;
+            case Type.Tree: healthAmount = 30; break;
             case Type.Log: healthAmount = 50; break;
             case Type.LogHalf: healthAmount = 50; break;
             case Type.Stump: healthAmount = 50; break;
