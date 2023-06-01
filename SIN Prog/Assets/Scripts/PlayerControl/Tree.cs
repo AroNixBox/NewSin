@@ -25,7 +25,7 @@ public class Tree : MonoBehaviour, ITreeDamageable
         switch (treeType)
         {
             default:
-            case Type.Tree: healthAmount = 30; break;
+            case Type.Tree: healthAmount = 150; break;
             case Type.Log: healthAmount = 50; break;
             case Type.LogHalf: healthAmount = 50; break;
             case Type.Stump: healthAmount = 50; break;
@@ -52,7 +52,7 @@ public class Tree : MonoBehaviour, ITreeDamageable
             default:
             case Type.Tree:
                 //spawn Log
-                Vector3 treeLogOffSet =transform.right * 0.3f;
+                Vector3 treeLogOffSet =transform.right * 1f;
                 Instantiate(treeLog, transform.position + treeLogOffSet, Quaternion.Euler(0,0,90));
                 //Spawn Stump
                 treeLogOffSet = transform.right * -5.3f;

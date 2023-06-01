@@ -23,6 +23,8 @@ public class ThirdPersonController : MonoBehaviour
     private Camera playerCamera;
     private Animator animator;
 
+    private LayerMask sandLayer;
+
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
