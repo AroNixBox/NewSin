@@ -4489,7 +4489,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 7
+  m_VersionIndex: 13
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4508,6 +4508,7 @@ GameObject:
   - component: {fileID: 90300672453231907}
   - component: {fileID: -3047613669195749362}
   - component: {fileID: 1997863425597639387}
+  - component: {fileID: 1692659247}
   m_Layer: 0
   m_Name: TreeHalf
   m_TagString: Untagged
@@ -4522,7 +4523,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5337112484235975130}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.31725, y: 5.24, z: 231.35}
   m_LocalScale: {x: 1.2349348, y: 1.2349348, z: 1.2349343}
   m_ConstrainProportionsScale: 0
@@ -4605,3 +4606,16 @@ CapsuleCollider:
   m_Height: 2.41
   m_Direction: 0
   m_Center: {x: 0, y: 0.28, z: 0}
+--- !u!114 &1692659247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337112484235975130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e010bd87dcbd9914683e47995df8ba74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myResult: {fileID: 158262, guid: 4b52ac9f710a9a24bb72344a8ed0986e, type: 3}

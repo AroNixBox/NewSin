@@ -117,6 +117,10 @@ public class PlayerPickup : MonoBehaviour
                 raycastHit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
                 eventChannel.RaiseEvent();
             }
+            else if (raycastHit.transform.TryGetComponent<CraftingPlace>(out CraftingPlace craftingPlace))
+            {
+                craftingPlace.Craft();
+            }
         }
     }
 
