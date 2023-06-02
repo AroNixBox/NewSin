@@ -6,7 +6,7 @@ public class CraftingPlace : MonoBehaviour
 {
     [SerializeField] private BoxCollider placeItemsArea;
     [SerializeField] private Transform itemSpawnPoint;
-    public GameObject thisResult;
+    [SerializeField] private GameObject thisResult;
 
     public void Craft()
     {
@@ -14,19 +14,13 @@ public class CraftingPlace : MonoBehaviour
 
         List<int> ingredient1 = new List<int>();
         List<GameObject> destroyables = new List<GameObject>();
-        //List<int> flowerIngredient = new List<int>();
         foreach (Collider collider in colliderArray)
         {
-            if(collider.TryGetComponent(out HolderForItemSO itemSOHolder))
+            if(collider.TryGetComponent(out Wood myWood))
             {
                 ingredient1.Add(1);
                 destroyables.Add(collider.gameObject);
             }
-            /*if(collider.TryGetComponent(out Flower flower))
-            {
-                flowerIngredient.Add(1);
-                destroyables.Add(collider.gameObject);
-            }*/
         }
         if (ingredient1.Count == 4)
         {
@@ -37,10 +31,6 @@ public class CraftingPlace : MonoBehaviour
             }
 
         }
-        /*if (ingredient1.Count == 2 && flowerIngredient.Count == 3)
-        {
-            Instantiate(thisResult);
-        }
-        Debug.Log(ingredient1.Count);*/
+        Debug.Log(ingredient1.Count);
     }
 }

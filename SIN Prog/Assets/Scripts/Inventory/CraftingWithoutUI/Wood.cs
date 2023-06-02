@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class HolderForItemSO : MonoBehaviour
+public class Wood : MonoBehaviour
 {
     //Hello I am here.
 }
