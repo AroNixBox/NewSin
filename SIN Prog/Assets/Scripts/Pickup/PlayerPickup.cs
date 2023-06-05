@@ -121,6 +121,10 @@ public class PlayerPickup : MonoBehaviour
             {
                 craftingPlace.Craft();
             }
+            else if (raycastHit.transform.TryGetComponent<Boatscript>(out Boatscript boat))
+            {
+                boat.StartEndScene();
+            }
         }
     }
 

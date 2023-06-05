@@ -9,6 +9,7 @@ TagManager:
   - Axe
   - Destroy
   - Ground
+  - Finish2
   layers:
   - Default
   - TransparentFX

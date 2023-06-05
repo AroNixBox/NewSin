@@ -22,7 +22,7 @@ public class CraftingPlace : MonoBehaviour
                 destroyables.Add(collider.gameObject);
             }
         }
-        if (ingredient1.Count == 4)
+        if (ingredient1.Count == 2)
         {
             Instantiate(thisResult, itemSpawnPoint.position, itemSpawnPoint.rotation);
             foreach(GameObject destoryable in destroyables)
