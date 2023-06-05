@@ -7,6 +7,7 @@ public class CraftingPlace : MonoBehaviour
     [SerializeField] private BoxCollider placeItemsArea;
     [SerializeField] private Transform itemSpawnPoint;
     [SerializeField] private GameObject thisResult;
+    [SerializeField] private int requiredAmount;
 
     public void Craft()
     {
@@ -22,7 +23,7 @@ public class CraftingPlace : MonoBehaviour
                 destroyables.Add(collider.gameObject);
             }
         }
-        if (ingredient1.Count == 2)
+        if (ingredient1.Count == requiredAmount)
         {
             Instantiate(thisResult, itemSpawnPoint.position, itemSpawnPoint.rotation);
             foreach(GameObject destoryable in destroyables)

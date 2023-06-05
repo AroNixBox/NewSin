@@ -12,4 +12,5 @@ public class RecipeSlot : MonoBehaviour
         m_label.text = recipe.ingredients[index].amount.ToString();
         m_icon.sprite = recipe.ingredients[index].item.icon;
     }
+
 }

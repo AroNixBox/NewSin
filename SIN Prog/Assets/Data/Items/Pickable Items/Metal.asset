@@ -16,4 +16,4 @@ MonoBehaviour:
   id: InventoryItem_Metal
   displayName: Metal
   icon: {fileID: 21300000, guid: a8ffa078e15c38e4591727b050a8fdfa, type: 3}
-  prefab: {fileID: 4180169781100525210, guid: 99408f8296c9bf54fbb21e259257321e, type: 3}
+  prefab: {fileID: 1054779504841968, guid: 9521e37e952285346bdcd875e0a2a0f9, type: 3}

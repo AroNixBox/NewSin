@@ -3,6 +3,7 @@ using UnityEngine;
 public class UIRecipe : MonoBehaviour
 {
     [SerializeField] private GameObject m_recipeSlotPrefab;
+    [SerializeField] private GameObject m_RecipeResultPrefab;
     /*[SerializeField] private ItemRecipe m_recipe;
 
     private void OnEnable()
@@ -20,6 +21,12 @@ public class UIRecipe : MonoBehaviour
             RecipeSlot slot = obj.GetComponent<RecipeSlot>();
             slot.Set(recipe, i);
         }
+        //Show Result
+        GameObject resultObj = Instantiate(m_RecipeResultPrefab);
+        resultObj.transform.SetParent(transform, false);
+
+        RecipeResult result = resultObj.GetComponent<RecipeResult>();
+        result.SetResult(recipe);
     }
 
     public void DestroyAllRecipeUI()

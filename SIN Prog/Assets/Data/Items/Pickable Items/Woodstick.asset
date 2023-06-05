@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTool: 0
   id: InventoryItem_WoodStick
-  displayName: WoodStick
-  icon: {fileID: 21300000, guid: 7a6a0a9d67f641e43aea9e42a3346e88, type: 3}
-  prefab: {fileID: 2462354105172287562, guid: e4aaf4405c400454689620edb6e69f0c, type: 3}
+  displayName: Wood
+  icon: {fileID: 21300000, guid: 101de9b13688cf44cb955d48eab6987a, type: 3}
+  prefab: {fileID: 1768140634152778, guid: 7affb776ee83c8e4c8d7ab25aff32905, type: 3}
