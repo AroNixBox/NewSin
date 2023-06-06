@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CraftingPlace : MonoBehaviour
@@ -8,7 +9,12 @@ public class CraftingPlace : MonoBehaviour
     [SerializeField] private Transform itemSpawnPoint;
     [SerializeField] private GameObject thisResult;
     [SerializeField] private int requiredAmount;
+    [SerializeField] private TextMeshProUGUI ItemText;
 
+    private void Update()
+    {
+        ItemText.text = "You need " + requiredAmount + "             to craft            !";
+    }
     public void Craft()
     {
         Collider[] colliderArray = Physics.OverlapBox(transform.position + placeItemsArea.center, placeItemsArea.size, placeItemsArea.transform.rotation);

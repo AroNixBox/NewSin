@@ -21,6 +21,7 @@ public class PlayerPickup : MonoBehaviour
 
     //UI + Colorchange for Interaction
     [SerializeField] private GameObject pickUPUI;
+    [SerializeField] private GameObject DestroyUI;
     private RaycastHit raycastHit;
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class PlayerPickup : MonoBehaviour
         pickableObject = GetComponent<PickableObject>();
         actionMap = new ThirdPersonActionMap();
         pickUPUI.SetActive(false);
+        DestroyUI.SetActive(false);
         animator = GetComponent<Animator>();
     }
     private void OnEnable()
@@ -133,6 +135,7 @@ public class PlayerPickup : MonoBehaviour
         if (raycastHit.collider != null)
         {
             pickUPUI.SetActive(false);
+            DestroyUI.SetActive(false);
             raycastHit.collider.GetComponent<Highlight>()?.ToggleHighlight(false);
         }
         //Iff Errors are caused, put this above first if..
@@ -142,7 +145,11 @@ public class PlayerPickup : MonoBehaviour
         }
         if (Physics.Raycast(interactRaycastAnker.position, interactRaycastAnker.forward, out raycastHit, interactionDistance, interactionMask))
         {
-            pickUPUI.SetActive(true);
+            if (raycastHit.transform.TryGetComponent<ITreeDamageable>(out ITreeDamageable treeDamageable))
+                DestroyUI.SetActive(true);
+            else
+                pickUPUI.SetActive(true);
+
             raycastHit.collider.GetComponent<Highlight>()?.ToggleHighlight(true);
         }
     }
