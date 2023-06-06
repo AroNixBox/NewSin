@@ -7,6 +7,7 @@ public class InventorySystem : MonoBehaviour
 {
     private Dictionary<InventoryItemDataSO, InventoryItem> m_itemDictionary;
     public static InventorySystem current;
+    public Transform ObjectDropPoint;
     [field: SerializeField]
     public List<InventoryItem> inventory { get; private set; }
     public event Action onInventoryChangedEvent;

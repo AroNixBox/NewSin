@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbefe51ff3926c41b85e51c2b12747f, type: 3}
   m_Name: Woodstick
   m_EditorClassIdentifier: 
+  isEdible: 0
   isTool: 0
   id: InventoryItem_WoodStick
   displayName: Wood
   icon: {fileID: 21300000, guid: 101de9b13688cf44cb955d48eab6987a, type: 3}
-  prefab: {fileID: 1768140634152778, guid: 7affb776ee83c8e4c8d7ab25aff32905, type: 3}
+  prefab: {fileID: 8355184828838416477, guid: 92204a786bd52b0498d854c214585ca5, type: 3}

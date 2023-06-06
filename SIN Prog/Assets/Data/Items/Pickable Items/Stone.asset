@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbefe51ff3926c41b85e51c2b12747f, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
+  isEdible: 0
   isTool: 0
   id: InventoryItem_Stone
   displayName: Stone
   icon: {fileID: 21300000, guid: 1a2c8df41b5e407449901242f514e4f1, type: 3}
-  prefab: {fileID: 5738150718336194437, guid: 2664bb2f9b4b57048ad9cd1f560c7567, type: 3}
+  prefab: {fileID: 3948384293414894227, guid: 03ab3f4a496fee747a88b146bb948cad, type: 3}
