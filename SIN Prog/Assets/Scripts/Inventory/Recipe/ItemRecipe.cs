@@ -43,11 +43,14 @@ public class ItemRecipe : MonoBehaviour
             //TODO handle proper way of removing Recipe
             uiRecipe.DestroyAllRecipeUI();
             //Instantiating new Recipe when this one will be destroyed and inserting!
-            var nextRec = Instantiate(nextRecipeToSpawn, spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
-            ItemRecipe nextRecipe = nextRec.GetComponent<ItemRecipe>();
-            nextRecipe.uiRecipe = this.uiRecipe;
-            nextRecipe.toolController = this.toolController;
-            nextRecipe.spawnPoints = this.spawnPoints;
+            if(nextRecipeToSpawn != null)
+            {
+                var nextRec = Instantiate(nextRecipeToSpawn, spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+                ItemRecipe nextRecipe = nextRec.GetComponent<ItemRecipe>();
+                nextRecipe.uiRecipe = this.uiRecipe;
+                nextRecipe.toolController = this.toolController;
+                nextRecipe.spawnPoints = this.spawnPoints;
+            }
             Destroy(this.gameObject);
         }
     }

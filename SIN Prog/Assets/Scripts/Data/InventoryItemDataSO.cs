@@ -4,6 +4,7 @@ using UnityEngine;
 public class InventoryItemDataSO : ScriptableObject
 {
     public bool isEdible;
+    public float eatStats;
     public bool isTool;
     public string id;
     public string displayName;

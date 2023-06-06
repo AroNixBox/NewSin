@@ -1,5 +1,3 @@
-using System.Diagnostics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -95,16 +93,21 @@ public class Tree : MonoBehaviour, ITreeDamageable
                 default:
                 case Type.Log:
                     TreeFell?.Invoke();
-                    return;
+                    break;
             }
         }
         if (collision.gameObject.TryGetComponent<ITreeDamageable>(out ITreeDamageable treeDamageable))
         {
-            if (collision.relativeVelocity.magnitude > 1f)
+            switch(treeType)
             {
-                int damageAmount = Random.Range(5, 20);
-                //DamagePopUp
-                treeDamageable.Damage(damageAmount);
+                case Type.Log:
+                    if (collision.relativeVelocity.magnitude > 5f)
+                    {
+                        int damageAmount = Random.Range(45, 75);
+                        //DamagePopUp
+                        treeDamageable.Damage(damageAmount);
+                    }
+                    break;
             }
         }
     }

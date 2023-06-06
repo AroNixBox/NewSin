@@ -1,20 +1,24 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
 [Serializable]
 public class InventorySystem : MonoBehaviour
 {
     private Dictionary<InventoryItemDataSO, InventoryItem> m_itemDictionary;
     public static InventorySystem current;
-    public Transform ObjectDropPoint;
     [field: SerializeField]
     public List<InventoryItem> inventory { get; private set; }
     public event Action onInventoryChangedEvent;
+    [Header("NeedThis - ToDrop")]
+    public Transform ObjectDropPoint;
 
     private void Awake()
     {
-        current = this;
+        if (current != null && current != this)
+            Destroy(this);
+        else
+            current = this;
+
         inventory = new List<InventoryItem>();
         m_itemDictionary = new Dictionary<InventoryItemDataSO, InventoryItem>();
     }

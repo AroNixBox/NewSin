@@ -1,8 +1,6 @@
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class ItemSlot : MonoBehaviour
 {
@@ -35,7 +33,7 @@ public class ItemSlot : MonoBehaviour
         if (!currentSelectedItem.data.isEdible)
             Instantiate(currentSelectedItem.data.prefab, InventorySystem.current.ObjectDropPoint.transform.position, Quaternion.identity);
         else
-            Debug.Log("isEdible");
+            PlayerStats.Instance.Eat(currentSelectedItem.data.eatStats);
 
         currentSelectedItem.RemoveFromStack();
         m_stackLabel.text = currentSelectedItem.stackSize.ToString();
