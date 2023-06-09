@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour, ITreeDamageable
         }
         if(hungerAmount > 70 && healthAmount > 0)
         {
-            healthAmount -= Time.deltaTime * 0.2f * hungerAmount;
+            healthAmount -= Time.deltaTime * 0.2f * hungerAmount * 0.2f;
         }
         if(hungerAmount < 30 && healthAmount < 100)
         {
