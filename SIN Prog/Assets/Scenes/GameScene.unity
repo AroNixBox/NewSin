@@ -9561,7 +9561,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566071378}
-  m_LocalRotation: {x: 0.018165424, y: -0.000000029802322, z: 0.000000007450581, w: 0.9998351}
+  m_LocalRotation: {x: 0.018165423, y: -0, z: 0.0000000074505797, w: 0.999835}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -12304,6 +12304,10 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[5]
       value: 
       objectReference: {fileID: 187313798}
+    - target: {fileID: 1111218110765667438, guid: 4ec8a0948c89a5a409d03612d13c6898, type: 3}
+      propertyPath: <eventChannel>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: d30756385e4b2e24887ab7f8a70f3183, type: 2}
     - target: {fileID: 3692975170386358191, guid: 4ec8a0948c89a5a409d03612d13c6898, type: 3}
       propertyPath: m_Name
       value: SteelRecipe

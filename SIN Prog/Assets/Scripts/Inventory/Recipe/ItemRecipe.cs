@@ -13,16 +13,10 @@ public class ItemRecipe : MonoBehaviour
     [Header("NextRecipe-Properties")]
     [SerializeField] private GameObject nextRecipeToSpawn;
     public Transform[] spawnPoints;
-    //public Action<string> myString;
-    //private string myName = "Nixon";
     public void OnHandlePickupRecipe()
     {
-        //public event instead of making this type of reference?
-        //Delegate!!!
-        //myString?.Invoke(myName);
         uiRecipe.SetUpRecipeUI(recipe);
         VoidEventChannel.OnEventRaised += CheckRecipeIngredients;
-
         this.gameObject.SetActive(false);
     }
     public void CheckRecipeIngredients()
@@ -40,7 +34,6 @@ public class ItemRecipe : MonoBehaviour
             {
                 InventorySystem.current.Add(recipe.result);
             }
-            //TODO handle proper way of removing Recipe
             uiRecipe.DestroyAllRecipeUI();
             //Instantiating new Recipe when this one will be destroyed and inserting!
             if(nextRecipeToSpawn != null)
