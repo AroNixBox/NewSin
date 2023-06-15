@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 919799317583383045}
   - component: {fileID: 919799317580042071}
   - component: {fileID: 919799317581440647}
-  - component: {fileID: 919799317581440641}
   - component: {fileID: 919799317581440640}
   - component: {fileID: 2421709379878225376}
   - component: {fileID: 2433153396385362892}
+  - component: {fileID: 2651964824213742038}
   m_Layer: 3
   m_Name: Steel
   m_TagString: Untagged
@@ -87,20 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &919799317581440641
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919799317583116291}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.0883567
-  m_Height: 2.1767135
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.000000059604645, z: -0.49915695}
 --- !u!54 &919799317581440640
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -145,3 +131,16 @@ MonoBehaviour:
   renderers:
   - {fileID: 919799317581440647}
   color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!65 &2651964824213742038
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919799317583116291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1767132, y: 2.1767132, z: 0.99831384}
+  m_Center: {x: 0, y: 0.00000005960464, z: -0.49915692}

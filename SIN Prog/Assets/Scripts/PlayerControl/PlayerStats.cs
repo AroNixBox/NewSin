@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour, ITreeDamageable
 {
     public static PlayerStats Instance { get; private set; }
     private float healthAmount = 100f;
-    private float hungerAmount = 0;
+    public float hungerAmount = 0;
     private float maxHunger = 100f;
     private Animator animator;
     private ThirdPersonController controller;
@@ -48,7 +48,7 @@ public class PlayerStats : MonoBehaviour, ITreeDamageable
         }
         if(hungerAmount > 70 && healthAmount > 0)
         {
-            healthAmount -= Time.deltaTime * 0.2f * hungerAmount * 0.2f;
+            healthAmount -= Time.deltaTime * hungerAmount * 0.015f;
         }
         if(hungerAmount < 30 && healthAmount < 100)
         {
