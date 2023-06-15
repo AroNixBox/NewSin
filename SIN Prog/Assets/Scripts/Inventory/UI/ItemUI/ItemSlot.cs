@@ -35,10 +35,7 @@ public class ItemSlot : MonoBehaviour
         else
             PlayerStats.Instance.Eat(currentSelectedItem.data.eatStats);
 
-        currentSelectedItem.RemoveFromStack();
-        m_stackLabel.text = currentSelectedItem.stackSize.ToString();
-        if(currentSelectedItem.stackSize <= 0)
-            Destroy(this.gameObject);
+        InventorySystem.current.Remove(currentSelectedItem.data);
 
     }
 }
