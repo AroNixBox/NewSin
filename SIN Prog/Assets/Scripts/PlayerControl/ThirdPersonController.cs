@@ -1,93 +1,93 @@
-using MoreMountains.Tools;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ThirdPersonController : MonoBehaviour
 {
     //input fields
-    private ThirdPersonActionMap actionMap;
-    private InputAction move;
+    private ThirdPersonActionMap _actionMap;
+    private InputAction _move;
 
     //movement fields
-    private Rigidbody rb;
+    private Rigidbody _rb;
     public float movementForce = 1f;
     public float jumpForce = 5f;
     public float maxSpeed = 5f;
-    private Vector3 forceDirection = Vector3.zero;
+    private Vector3 _forceDirection = Vector3.zero;
 
     [SerializeField]
     private Camera playerCamera;
     private Animator animator;
 
     private LayerMask sandLayer;
+    private static readonly int Walking = Animator.StringToHash("Walking");
+    private static readonly int Jump = Animator.StringToHash("Jump");
 
     private void Awake()
     {
-        rb = this.GetComponent<Rigidbody>();
-        actionMap = new ThirdPersonActionMap();
+        _rb = this.GetComponent<Rigidbody>();
+        _actionMap = new ThirdPersonActionMap();
         animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
     {
-        actionMap.OnFoot.Jump.performed += DoJump;
-        move = actionMap.OnFoot.Move;
-        actionMap.OnFoot.Enable();
+        _actionMap.OnFoot.Jump.performed += DoJump;
+        _move = _actionMap.OnFoot.Move;
+        _actionMap.OnFoot.Enable();
     }
 
     private void OnDisable()
     {
-        actionMap.OnFoot.Jump.performed -= DoJump;
-        actionMap.OnFoot.Disable();
+        _actionMap.OnFoot.Jump.performed -= DoJump;
+        _actionMap.OnFoot.Disable();
     }
 
     private void FixedUpdate()
     {
-        forceDirection += move.ReadValue<Vector2>().x * GetCameraRight(playerCamera) * movementForce;
-        forceDirection += move.ReadValue<Vector2>().y * GetCameraForward(playerCamera) * movementForce;
+        _forceDirection += GetCameraRight(playerCamera) * (_move.ReadValue<Vector2>().x * movementForce);
+        _forceDirection += GetCameraForward(playerCamera) * (_move.ReadValue<Vector2>().y * movementForce);
 
-        rb.AddForce(forceDirection, ForceMode.Impulse);
+        _rb.AddForce(_forceDirection, ForceMode.Impulse);
         //when let go of button, stop accelerate
-        forceDirection = Vector3.zero;
+        _forceDirection = Vector3.zero;
 
-        if (rb.velocity.y < 0f)
+        if (_rb.velocity.y < 0f)
         {
-            rb.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
+            _rb.velocity -= Vector3.down * (Physics.gravity.y * Time.fixedDeltaTime);
         }
 
-        Vector3 horizontalVelocity = rb.velocity;
+        Vector3 horizontalVelocity = _rb.velocity;
         horizontalVelocity.y = 0;
         if (horizontalVelocity.sqrMagnitude > maxSpeed * maxSpeed)
         {
-            rb.velocity = horizontalVelocity.normalized * maxSpeed + Vector3.up * rb.velocity.y;
+            _rb.velocity = horizontalVelocity.normalized * maxSpeed + Vector3.up * _rb.velocity.y;
         }
         LookAt();
     }
 
     private void LookAt()
     {
-        Vector3 direction = rb.velocity;
+        Vector3 direction = _rb.velocity;
         direction.y = 0;
 
-        if (move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
+        if (_move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
         {
             //WE ARE MOVING
-            animator.SetBool("Walking", true);
+            animator.SetBool(Walking, true);
             Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-            float turnSpeed = 7f; //or whatever
-            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * turnSpeed);
+            var turnSpeed = 7f; //or whatever
+            _rb.rotation = Quaternion.Slerp(_rb.rotation, targetRotation, Time.deltaTime * turnSpeed);
 
             //Added.normalized very late, maybe remove if it causes bugs
             //Before was: rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
         }
         else
         {
-            animator.SetBool("Walking", false);
+            animator.SetBool(Walking, false);
             //WE ARENT MOVING
             //Idle Animation
-            //stop camrotation
-            rb.angularVelocity = Vector3.zero;
+            //stop cam rotation
+            _rb.angularVelocity = Vector3.zero;
         }
     }
 
@@ -110,8 +110,8 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (IsGrounded())
         {
-            animator.SetTrigger("Jump");
-            forceDirection += Vector3.up * jumpForce;
+            animator.SetTrigger(Jump);
+            _forceDirection += Vector3.up * jumpForce;
         }
     }
 
