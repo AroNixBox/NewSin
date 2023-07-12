@@ -412,7 +412,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Quick Tutorial: Objective is to pick up the books (recipes), collect the
     ingredients. After unlocking the axe, lumber trees, carry Tree-Party on the big
-    rock, unlock and finally use the boat to get away from the island'
+    rock, unlock and finally use the boat to get away from the island. Click on Items
+    in Inventory to use/Drop them'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 125cb55b44b24c4393181402bc6200e6, type: 2}
