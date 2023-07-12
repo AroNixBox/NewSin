@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pushing : MonoBehaviour
 {
@@ -53,7 +55,13 @@ public class Pushing : MonoBehaviour
             transform.position = paddle.position;
             transform.parent = paddle.parent;
             boat.GetComponent<Boatscript>().goDriveIntoTheSun = true;
+            StartCoroutine(RestartGame());
         }
 
+    }
+    IEnumerator RestartGame()
+    {
+        yield return new WaitForSeconds(7f);
+        SceneManager.LoadScene("Main Menu");
     }
 }

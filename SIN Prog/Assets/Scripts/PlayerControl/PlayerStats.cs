@@ -60,6 +60,6 @@ public class PlayerStats : MonoBehaviour, ITreeDamageable
     private IEnumerator LoadLostScene()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Lost");
+        SceneManager.LoadScene("Main Menu");
     }
 }

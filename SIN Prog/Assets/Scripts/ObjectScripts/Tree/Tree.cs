@@ -31,7 +31,7 @@ public class Tree : MonoBehaviour, ITreeDamageable
     }
     public void Damage(int amount)
     {
-        healthAmount -= amount;
+         healthAmount -= amount;
     }
     private void FixedUpdate()
     {
